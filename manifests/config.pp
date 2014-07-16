@@ -4,14 +4,12 @@ class puppetmaster::config {
   $is_ca = hiera('puppetmaster::is_ca', false)
   $dns_alt_names = hiera('puppetmaster::dns_alt_names')
   $use_dns_srv_domain = hiera('use_dns_srv_domain', false)
-  $puppetdb_server = hiera('puppetdb_server')
-  $puppetdb_port = hiera('puppetdb_port', '8081')
   $use_environments = hiera('puppetmaster::use_environments')
   $puppet_deploy_user = hiera('puppetmaster::deploy_user', 'root')
   $use_r10k = hiera('puppetmaster::use_r10k', false)
   $use_eyaml = hiera('puppetmaster::use_eyaml', false)
-  $puppetdb_server = hiera('puppetdb_server')
-  $puppetdb_port = hiera('puppetdb_port', '8081')
+  $puppetdb_server = hiera('puppetmaster::puppetdb_server')
+  $puppetdb_port = hiera('puppetmaster::puppetdb_port', '8081')
 
 
   file { '/etc/puppet':
