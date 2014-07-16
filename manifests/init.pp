@@ -1,6 +1,6 @@
 # == Class: puppetmaster
 #
-# Full description of class puppetmaster here.
+# Installs puppet master server.
 #
 # === Parameters
 #
@@ -37,5 +37,8 @@
 #
 class puppetmaster {
 
+  class { 'puppetmaster::install': } ->
+  class { 'puppetmaster::config': } -> 
+  class { 'puppetmaster::service': }
 
 }
