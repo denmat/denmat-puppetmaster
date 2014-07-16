@@ -1,5 +1,5 @@
 {
-  "name": "denmat-puppetmaster",
+  "name": "denmat/puppetmaster",
   "version": "0.0.1",
   "author": "denmat",
   "summary": "installs puppet master",
