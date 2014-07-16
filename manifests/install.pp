@@ -2,8 +2,8 @@ class puppetmaster::install {
 
   $default_pre_req = { tag => 'pre_req' }
   $default = { tag => 'pm_post' }
-  $required_packages = $puppetmaster_required_packages
-  $packages = $puppetmaster_packages
+  $required_packages = hiera('puppetmaster::required_packages')
+  $packages = hiera('puppetmaster::packages')
   
   validate_hash($required_packages)
   validate_hash($packages)
