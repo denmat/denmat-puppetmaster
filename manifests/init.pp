@@ -37,8 +37,4 @@
 #
 class puppetmaster {
 
-  class { 'puppetmaster::install': } ->
-  class { 'puppetmaster::config': } -> 
-  class { 'puppetmaster::service': }
-
 }

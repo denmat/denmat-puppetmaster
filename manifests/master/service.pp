@@ -1,4 +1,4 @@
-class puppetmaster::service (
+class puppetmaster::master::service (
   $ensure  = true,
   $enabled = true,
   $puppetmaster::use_httpd = false

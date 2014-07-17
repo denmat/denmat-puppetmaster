@@ -1,0 +1,9 @@
+# Example of a r10k.yaml file
+#:moduledir: '<directory_name>'
+#
+#:cachedir: '/var/cache/r10k'
+#
+#:sources:
+#  :puppet_main:
+#    remote: 'git@git.<domain>:puppet'
+#    basedir: '/etc/puppet/environments'

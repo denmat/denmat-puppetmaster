@@ -1,6 +1,6 @@
-class puppetmaster::r10k {
+class puppetmaster::master::r10k {
 
-  $puppet_deploy_user = hiera('puppetmaster::deploy_user', 'root')
+  $puppetmaster_deploy_user = hiera('puppetmaster::deploy_user', 'root')
   $r10k_packages = hiera('puppetmaster::r10k_packages')
 
   create_resources(package, $r10k_packages)
@@ -15,9 +15,9 @@ class puppetmaster::r10k {
 
   file { '/var/cache/r10k':
     ensure  => directory,
-    owner   => $puppet_deploy_user,
+    owner   => $puppetmaster_deploy_user,
     group   => root,
     mode    => 0755,
-    require => User[$puppet_deploy_user]
+    require => User[$puppetmaster_deploy_user]
   }
 }

@@ -1,4 +1,4 @@
-class puppetmaster::eyaml {
+class puppetmaster::master::eyaml {
 
   $eyaml_packages = hiera('puppetmaster::eyaml_packages')
 

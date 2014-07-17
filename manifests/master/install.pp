@@ -1,4 +1,4 @@
-class puppetmaster::install {
+class puppetmaster::master::install {
 
   $default_pre_req = { tag => 'pre_req' }
   $default = { tag => 'pm_post' }
