@@ -15,42 +15,32 @@
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+This module will currently install a puppet master with an embedded puppetdb.
 
+Still to come:
+  * deploy postgresql backed puppetdb 
+ 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
-
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
-
-## Setup
+This module is designed to build a local puppet master, run either in a Vagrant or Docker container. 
+It uses Hiera to lookup vars and is designed to work with https://github.com/denmat/vagrant-docker
 
 ### What puppetmaster affects
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+* /etc/puppet/puppet.conf and other files in the /etc/puppet directory
+* installs puppetdb, puppet client and puppet master
+* manages the puppetmaster daemon service with a plan to notify httpd
 
-### Setup Requirements **OPTIONAL**
+### Setup Requirements 
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
+None.
 
 ### Beginning with puppetmaster
 
-The very basic steps needed for a user to get the module up and running.
+This Module relies on the following list of puppet modules:
+https://github.com/denmat/vagrant-docker/blob/master/Puppetfile
 
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
-
+<!--
 ## Usage
 
 Put the classes, types, and resources for customizing, configuring, and doing
@@ -77,3 +67,4 @@ know what the ground rules for contributing are.
 If you aren't using changelog, put your release notes here (though you should
 consider using changelog). You may also add any additional sections you feel are
 necessary or important to include here. Please use the `## ` header.
+-->
