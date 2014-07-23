@@ -7,6 +7,7 @@ class puppetmaster::params {
 
   $is_puppetmaster = hiera('puppetmaster::is_puppetmaster', false)
   $is_ca = hiera('puppetmaster::is_ca', false)
+  $is_devel = hiera('puppetmaster::is_devel', false)
   $use_directory_environments = hiera('puppetmaster::use_directory_environments', false)
   $puppetmaster_modulepath = hiera('puppetmaster::modulepath', false)
   $dns_alt_name = hiera('puppetmaster::dns_alt_names', false)

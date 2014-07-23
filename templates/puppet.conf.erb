@@ -66,6 +66,10 @@
 <% unless @is_ca -%>
     ca = false
 <% end -%>
+<% if @is_devel %>
+    # for dev testing only -- enables auto signing of SSL certificates.
+    autosign = true
+<% end -%>
 <% if @use_directory_environments -%>
     environmentpath = $confdir/environments 
 <% else -%>
@@ -73,7 +77,6 @@
     modulepath = <%= @puppetmaster_modulepath.collect {|mod| "/etc/puppet/environments/$environment/#{mod}.join(':'):/usr/share/puppet/modules" } %>
     manifest =  /etc/puppet/environments/$environment/manifests/site.pp
 <% end %>
-
 
     # Using PuppetDB for backend DB
     storeconfigs = true
