@@ -1,4 +1,4 @@
-class puppetmaster::master::service (
+class puppetmaster::master::service inherits puppetmaster::params (
   $ensure  = true,
   $enabled = true,
   $puppetmaster::use_httpd = false
