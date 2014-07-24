@@ -10,8 +10,8 @@
 <% end -%>
 <% end -%>
 <% raise 'hierarchy should be an array' if @hiera_hierarchy.empty? -%>
-<% @hiera_hierarchy.each do |hierarchy| -%>
 :hierarchy:
+<% @hiera_hierarchy.each do |hierarchy| -%>
   - <%= hierarchy %> 
 <% end -%> 
 <% else -%>
