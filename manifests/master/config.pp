@@ -1,5 +1,10 @@
 class puppetmaster::master::config {
   include puppetmaster::params
+  if $puppetmaster::params::use_httpd {
+    $puppet_service = 'httpd'
+  } else {
+    $puppet_service = 'puppetmaster'
+  }
 
   file { '/etc/puppet':
     ensure  => directory,
@@ -14,7 +19,8 @@ class puppetmaster::master::config {
     owner   => $puppetmaster_deploy_user,
     group   => root,
     mode    => '0755',
-    require => File['/etc/puppet/puppet.conf']
+    require => File['/etc/puppet/puppet.conf'],
+    notify  => Service[$puppet_service]
   }
 
   file { '/etc/puppet/hiera.yaml':
@@ -23,6 +29,7 @@ class puppetmaster::master::config {
     group   => root,
     mode    => 0644,
     content => template('puppetmaster/master/hiera.yaml.erb'),
+    notify  => Service[$puppet_service]
    }
 
   file { '/etc/puppet/auth.conf':
