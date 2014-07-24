@@ -1,17 +1,17 @@
-<% if @puppetmaster::params::use_hiera -%>
+<% if @use_hiera -%>
 :backends:
-<% raise 'must supply hash with backends key' unless @puppetmaster::params::hiera_backend.has_key?('backends') -%>
-<% @puppetmaster::params::hiera_backend['backends'].each_key do |key| -%>
+<% raise 'must supply hash with backends key' unless @hiera_backend.has_key?('backends') -%>
+<% @hiera_backend['backends'].each_key do |key| -%>
   - <%= key %>
 
 :<%= key %>:
-<% @puppetmaster::params::hiera_backend['backends'][key].each_pair do |set, val| -%>
+<% @hiera_backend['backends'][key].each_pair do |set, val| -%>
   :<%= set %>: <%= val %>
 <% end -%>
 <% end -%>
-<% raise 'hierarchy should be an array' if @puppetmaster::params::hiera_hierarchy.empty? -%>
+<% raise 'hierarchy should be an array' if @hiera_hierarchy.empty? -%>
 :hierarchy:
-<% @puppetmaster::params::hiera_hierarchy.each do |hierarchy| -%>
+<% @hiera_hierarchy.each do |hierarchy| -%>
   - <%= hierarchy %> 
 <% end -%> 
 <% else -%>

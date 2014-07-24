@@ -2,7 +2,11 @@ class puppetmaster::master::config {
 
   include puppetmaster::params
 
-  if $puppetmaster::params::use_httpd {
+  $use_hiera = $puppetmaster::params::use_hiera
+  $hiera_backend = $puppetmaster::params::hiera_backend
+  $hiera_hierarchy = $puppetmaster::params::hiera_hierarchy
+
+  if $use_httpd {
     $puppet_service = 'httpd'
   } else {
     $puppet_service = 'puppetmaster'
