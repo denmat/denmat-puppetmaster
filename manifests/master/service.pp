@@ -5,7 +5,7 @@ class puppetmaster::master::service (
 
   include puppetmaster::params
 
-  if $puppetmaster::use_httpd {
+  if $puppetmaster::params::use_httpd {
     service { 'httpd':
       ensure     => $ensure,
       enable     => $enabled,
