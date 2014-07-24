@@ -1,5 +1,7 @@
 class puppetmaster::master::config {
+
   include puppetmaster::params
+
   if $puppetmaster::params::use_httpd {
     $puppet_service = 'httpd'
   } else {
