@@ -1,4 +1,5 @@
-class puppetmaster::master::config inherits puppetmaster::params {
+class puppetmaster::master::config {
+  include puppetmaster::params
 
   file { '/etc/puppet':
     ensure  => directory,
@@ -17,11 +18,11 @@ class puppetmaster::master::config inherits puppetmaster::params {
   }
 
   file { '/etc/puppet/hiera.yaml':
-    ensure => present,
-    owner  => root,
-    group  => root,
-    mode   => 0644,
-    source => 'puppet:///modules/puppetmaster/hiera.yaml',
+    ensure  => present,
+    owner   => root,
+    group   => root,
+    mode    => 0644,
+    content => template('puppetmaster/master/hiera.yaml.erb'),
    }
 
   file { '/etc/puppet/auth.conf':

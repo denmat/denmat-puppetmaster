@@ -20,4 +20,7 @@ class puppetmaster::params {
   $puppetdb_server = hiera('puppetmaster::puppetdb_server', 'puppetdb')
   $puppetdb_port = hiera('puppetmaster::puppetdb_port', '8081')
 
+  $use_hiera = hiera('puppetmaster::use_hiera', false)
+  $hiera_backend = hiera('puppetmaster::hiera::backends', false)
+  $hiera_hierarchy = hiera('puppetmaster::hiera::hierarchy', false)
 }

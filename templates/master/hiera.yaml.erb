@@ -1,0 +1,20 @@
+<% if @use_hiera -%>
+:backends:
+<% raise 'must supply hash with backends key' unless @hiera_backend.has_key?('backends') -%>
+<% @hiera_backend['backends'].each_key do |key| -%>
+  - <%= key %>
+
+:<%= key %>:
+<% @hiera_backend['backends'][key].each_pair do |set, val| -%>
+  :<%= set %>: <%= val %>
+<% end -%>
+<% end -%>
+<% raise 'hierarchy should be an array' if @hiera_hierarchy.empty? -%>
+<% @hiera_hierarchy.each do |hierarchy| -%>
+:hierarchy:
+  - <%= hierarchy %> 
+<% end -%> 
+<% else -%>
+# You must provide your own hiera configuration details if you wish to use this - see params.pp
+<% end -%>
+
